@@ -11,6 +11,4 @@ window.TrelloClone = {
 };
 
   $(document).ready(function(){
-
-  TrelloClone.initialize();
 });

@@ -1,18 +1,21 @@
-class BoardController < ApplicationController
-
+class Api::BoardsController < ApplicationController
 	def new
 		@board = Board.new
 		render json: @board
 	end
 
 	def create
-		@board = Boards.new(board_params)
-		@board.id = current_user.id
+		@board = Board.new(board_params)
+		@board.user_id = current_user.id
 		if @board.save
 			render json: @board
 		else
-			render json @board.errors.full_messages
+			render json: @board.errors.full_messages
 		end
+	end
+
+	def show
+		@board = Board.find(params[:id])
 	end
 
 	def destroy

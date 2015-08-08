@@ -1,0 +1,12 @@
+<h1 class="board-title">
+<%= board.escape("title") %>
+</h1>
+
+<ul>
+	<% lists.each(function(list){ %>
+		<li>
+			<%= list.get("title") %>
+		</li>
+	<% }) %>
+
+<a href="/#"> Back to All Boards</a>

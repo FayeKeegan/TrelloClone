@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root to: "static_pages#index"
-  resources :api do 
+  namespace :api, defaults: { format: :json } do 
 	  resources :boards
-	  # resources :cards
-	  # resources :lists
+	  resources :lists
 	  # resources :items
+	  # resources :cards
   end
   
   resources :users, only: [:new, :create]

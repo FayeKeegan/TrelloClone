@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require jquery.serializejson.min
+//= require composite_view
 //= require trello_clone
 //= require_tree ../templates
 //= require_tree ./models
