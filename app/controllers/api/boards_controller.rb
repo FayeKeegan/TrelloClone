@@ -25,7 +25,7 @@ class Api::BoardsController < ApplicationController
 	end
 
 	def index
-		@boards = Board.all
+		@boards = current_user.boards
 		render json: @boards
 	end
 

@@ -1,7 +1,7 @@
 TrelloClone.Views.ListIndexItem = Backbone.CompositeView.extend({
 	template: JST["lists/list_index_item"],
 
-	className: "list-index-item",
+	className: "list-index-item list-group-item",
 
 	tagName: "li",
 
@@ -22,8 +22,11 @@ TrelloClone.Views.ListIndexItem = Backbone.CompositeView.extend({
 		var cardData = $(".new-card-form").serializeJSON();
 		var card = new TrelloClone.Models.Card(cardData);
 		card.set("list_id", this.model.id)
-		card.set("ord", this.model.cards().last().get("ord") + 1)
-		debugger
+		if (!this.model.cards().last() ){
+			card.set("ord", 1)
+		} else {
+			card.set("ord", this.model.cards().sort().last().get("ord") + 1)
+		}
 		card.save({}, {
 			success: function(){
 				that.model.cards().add(card);
@@ -37,7 +40,6 @@ TrelloClone.Views.ListIndexItem = Backbone.CompositeView.extend({
 		this.listenTo(this.model, "sync", this.render);
 		this.model.cards().each(this.addCardSubview.bind(this));
 		this.model.fetch();
-		// debugger
 	},
 
 	addCardSubview: function(card){

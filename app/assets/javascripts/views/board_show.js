@@ -50,7 +50,11 @@ TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
 		var listData = $(".new-list-form").serializeJSON();
 		var list = new TrelloClone.Models.List(listData);
 		list.set("board_id", this.model.id)
-		list.set("ord", this.model.lists().last().get("ord") + 1)
+		if (!this.model.lists().last() ){
+			list.set("ord", 1)
+		} else {
+			list.set("ord", this.model.lists().sort().last().get("ord") + 1)
+		}
 		list.save({}, {
 			success: function(){
 				that.model.lists().add(list);

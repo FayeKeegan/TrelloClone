@@ -1,7 +1,7 @@
 TrelloClone.Views.CardIndexItem = Backbone.View.extend({
 	template: JST["cards/index_item"],
 
-	className: "card-index-item",
+	className: "card-index-item list-group-item",
 
 	tagName: "li",
 
