@@ -3,6 +3,10 @@ TrelloClone.Collections.Boards = Backbone.Collection.extend({
 
 	model: TrelloClone.Models.Board,
 
+	comparable: function(board){
+		return board.get("ord");
+	},
+
 
 	getOrFetch: function(id){
 		var board = this.get(id)

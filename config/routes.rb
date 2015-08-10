@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 	  resources :boards
 	  resources :lists
 	  # resources :items
-	  # resources :cards
+	  resources :cards
   end
   
   resources :users, only: [:new, :create]

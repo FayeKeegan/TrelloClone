@@ -1,7 +1,6 @@
 class Api::ListsController < ApplicationController
 	def show
 		@list = List.find(params[:id])
-		render json: @list
 	end
 
 	def index
@@ -17,6 +16,7 @@ class Api::ListsController < ApplicationController
 
 	def create
 		@list = List.new(list_params)
+		@list.save
 		render json: @list
 	end
 

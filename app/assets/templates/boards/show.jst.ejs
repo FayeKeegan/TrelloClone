@@ -2,11 +2,9 @@
 <%= board.escape("title") %>
 </h1>
 
-<ul>
-	<% lists.each(function(list){ %>
-		<li>
-			<%= list.get("title") %>
-		</li>
-	<% }) %>
-
-<a href="/#"> Back to All Boards</a>
+<ul class="list-index">
+</ul>
+<button class="create-list-button"> Create New List</button>
+<button class="delete-board">Delete Board</button>
+<br>
+<a href="/#" class="back-to-index"> Back to All Boards</a>
